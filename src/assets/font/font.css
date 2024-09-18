@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('/public/assets/font/twitterchirpfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,486 @@
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    /*background-color: rgb(0, 0, 0);*/
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+}
+.most-relevant:hover{
+    background-color: rgb(0, 0, 0)!important;
+    cursor: pointer;
+}
+.bookmark-interactions{
+    display: flex;
+    gap: 10px;
+}
+.dirty-interactions-wrapper{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+}
+.dirty-comment-text{
+    width: 100%;
+}
+.avi-class{
+    border-radius: 100px;
+}
+.dirty-text-top-name{
+    font-size: 15px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.00);
+}
+.dirty-text-bottom{
+    margin-top: 3px;
+    color: rgb(231, 233, 234);
+}
+
+.dirty-text-top-wrapper{
+    display: flex;
+justify-content: space-between;
+}
+.mass-block-clicked{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.mass-block-radio{
+    /*width: 40px;*/
+    height: 30px;
+}
+/* Hide the default radio input */
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+/* Create a custom box for the radio */
+.radio-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.action-item-mass-block{
+    color: rgb(29, 155, 240);
+    display: flex;
+    gap:10px;
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+.action-item-mass-block:hover{
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+}
+ /*When the input is checked, apply styles to the box */
+.custom-radio input[type="radio"]:checked + .radio-box {
+    background-color: rgb(29, 155, 240);
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+/*.radio-box{*/
+/*    background-color: rgb(29, 155, 240);*/
+/*    border-color: black;*/
+/*    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+.deselected-user{
+    background-color: white!important;
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+    /* Change the color or shadow on hover */
+.custom-radio:hover .radio-box {
+    border-color: rgb(113, 118, 123);
+}
+
+/* Style the label (optional) */
+.custom-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.action-item{
+    display: flex;
+    gap:10px;
+    cursor: pointer;
+    align-items: center;
+    padding: 10px 20px;
+    font-weight: 500;
+    color: white;
+}
+.action-item:hover {
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.03);
+
+}
+.more-actions-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 100;
+    top: 80px;
+    right: 450px;
+    width: 310px;
+    /*height: 440px;*/
+    border-radius: 12px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px;
+
+}
+.dirty-text-top{
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+.trend-item-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.trends-list{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.trend-item{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.trend-item-type{
+    font-size: 13px;
+    color: rgb(113, 118, 123);
+
+}
+.dirty-comment{
+    gap: 8px;
+    display: flex;
+}
+.comment-divider{
+}
+.post-screen-comments{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.comment-divider{
+    margin: 11px -15px;
+    height: 1px;
+    background-color: rgb(47, 51, 54);
+}
+.confirm-mass-block-header{
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+.confirm-mass-block-body{
+    margin-top: 10px;
+    color: rgb(113, 118, 123);
+    font-size: 15px;
+
+}
+.confirm-mass-block-buttons{
+    gap: 15px;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+}
+.confirm-mass-block{
+    background-color: black;
+    width: 256px;
+    border-radius: 16px;
+    padding: 32px;
+    height: 236px;
+}
+.modal-overlay-form {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(91, 112, 131, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cancel-btn{
+    border: 2px solid rgb(47, 51, 54);
+    width: 100%;
+    height: 42px;
+    font-weight: 600;
+    background-color: black;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(239, 243, 244);
+    border-radius: 9999px;
+}
+.block-btn{
+    font-size: 15px;
+    font-weight: 600;
+    border: 0;
+    width: 100%;
+    height: 42px;
+    background-color: rgb(244, 33, 46);
+    cursor: pointer;
+    color: white;
+    border-radius: 9999px;
+}
+.reply-btn{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgb(29, 155, 240);
+    /*width: 70px;*/
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 100px;
+    padding: 0 15px;
+}
+.user-reply{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    color: rgb(113, 118, 123);
+}
+.most-relevant{
+    border: 1px solid rgb(47, 51, 54);
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgb(22, 24, 28)!important;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.interactions-wrapper{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 25px;
+    justify-content: space-around;
+}
+.most-relevant-left{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(231, 233, 234);
+
+}
+.interactions-comments{
+    cursor: pointer;
+    display: flex;
+    gap:5px;
+    font-size: 13px;
+    color: rgb(113, 118, 123);
+    align-items: center;
+}
+.interactions-like{
+    cursor: pointer;
+    display: flex;
+    gap:5px;
+    font-size: 13px;
+    align-items: center;
+    color: rgb(249, 24, 128);
+}
+.post-screen-wrapper{
+    padding-top: 15px;
+    display: flex;
+}
+.interactions-divider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(47, 51, 54);
+
+}
+.post-screen{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.post-screen-item-avi{
+    border-radius: 30px;
+}
+.tweet-span {
+    color:  rgb(29, 155, 240);
+    margin-top: 3px
+}
+.trending-search{
+    padding-left: 25px;
+}
+.relevant-ppl-wrap{
+    display: flex;
+    gap: 10px;
+}
+.relevant-people-text{
+     margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.relevant-people{
+    padding: 15px;
+    border: 1px solid rgb(47, 51, 54);
+    border-radius: 16px;
+    margin-top: 15px;
+    color: white;
+}
+.twitter-live span{
+    font-size: 13px;
+   color: rgb(231, 233, 234);
+}
+.following-tab{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 32px;
+    border-radius: 9999px;
+    border: 1px solid rgb(83, 100, 113);
+}
+.post-screen-user-bio{
+    display: flex;
+    align-items: center;
+
+    margin-top: 5px;
+    font-size: 15px;
+    color: white;
+;
+}
+.trending-searchbar{
+    display: flex;
+    padding: 15px;
+    gap: 10px;
+    width: 320px;
+    border-radius: 9999px;
+    align-items: center;
+    background-color: rgb(32, 35, 39);
+    color:rgb(113, 118, 123););
+}
+.post-screen-item-details{
+    font-size: 15px;
+    margin-top: 15px;
+    color: rgb(113, 118, 123);
+}
+.post-screen-item-details span {
+    font-weight: 500;
+    margin-right: 2px;
+    margin-left: 2px;
+    color: rgb(231, 233, 234);
+}
+.post-screen-item-tweet{
+    margin-top: 8px;
+    font-size: 17px;
+    color: rgb(231, 233, 234);
+}
+.post-screen-display-name{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: rgb(231, 233, 234);
+    font-size: 15px;
+}
+.post-screen-item-name{
+    display: flex;
+    flex-direction: column;
+}
+.post-screen-user-name{
+    color: rgb(113, 118, 123);
+    font-size: 15px;
+}
+.post-screen-item{
+    width: 598px;
+}
+.more-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.post-screen-item-header{
+    display: flex;
+    gap: 10px;
+}
+.post-screen-header{
+    margin-bottom: 25px;
+    align-items: center;
+    display: flex;
+    gap: 40px;
+}
+.post-header-text{
+    font-weight: 550;
+    color: white;
+    font-size: 20px;
+}
+.side-bar-item:hover{
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.00);
+}
+.post-btn{
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgb(29, 155, 240);
+    width: 233px;
+    height: 52px;
+    border-radius: 30px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+}
+.side-bar-item{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.divider{
+    margin-top: -15px;
+    height: 100vh;
+    width: 1px ;
+    background-color: rgb(47, 51, 54);
+}
+.twitter-sidebar{
+    /*margin-top: 10px;*/
+    padding-right: 40px;
+    padding-left: 100px;
+    flex-direction: column;
+    display: flex;
+}
+.side-bar-item-text{
+    color: white;
+    font-size: 20px;
+}
+
+.side-bar-items{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
