@@ -1,9 +1,10 @@
 
 export type MassBlockModalProps={
     onClose:()=>void
+    onBlock:()=>void
 }
 
-export default function MassBlockModal({onClose}:MassBlockModalProps){
+export default function MassBlockModal({onClose,onBlock}:MassBlockModalProps){
 
 
    return(
@@ -11,7 +12,7 @@ export default function MassBlockModal({onClose}:MassBlockModalProps){
            <div className={"modal-overlay-form"}>
                <div className={"confirm-mass-block"}>
                    <div className={"confirm-mass-block-header"}>
-                       Block 4 users ?
+                       Block 3 users ?
 
                    </div>
                    <div className={"confirm-mass-block-body"}>
@@ -20,7 +21,7 @@ export default function MassBlockModal({onClose}:MassBlockModalProps){
 
                    </div>
                    <div className={"confirm-mass-block-buttons"}>
-                       <button className={"block-btn"}>
+                       <button onClick={onBlock}  className={"block-btn"}>
                            Block
                        </button>
                        <button onClick={onClose} className={"cancel-btn"}>

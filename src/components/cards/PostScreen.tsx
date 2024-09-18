@@ -9,6 +9,7 @@ import dummyImg4 from "../../assets/images/nastyguy.jpg"
 import {useState} from "react";
 import MoreActionsModal from "../modals/MoreActionsModal.tsx";
 import MassBlockModal from "../modals/MassBlockModal.tsx";
+import BlockedSuccessfulModal from "../modals/BlockedSuccessfulModal.tsx";
 
 
 
@@ -22,11 +23,16 @@ export default function PostScreen(){
     const [showModal, setShowModal] = useState(false)
     const [massBlock, setMassBlock]=useState(false)
     const [massBlockModal, setMassBlockModal]=useState(false)
-
+    const [openBlockedSuccessful, setOpenBlockedSuccessful]=useState(false)
     const [selectUser, setSelectUser]=useState(false)
 
 
 
+    function blockMassUsers(){
+        setMassBlockModal(false)
+        setMassBlock(false)
+        setOpenBlockedSuccessful(true)
+    }
 
     const massBlockUsers = ()=>{
         setMassBlock(true)
@@ -97,6 +103,7 @@ export default function PostScreen(){
                                     </svg>
                                 </a>
                                 {showModal && <MoreActionsModal massBlockProp={()=>massBlockUsers()}/>}
+                                {openBlockedSuccessful && <BlockedSuccessfulModal/>}
 
                             </div>
 
@@ -201,7 +208,7 @@ export default function PostScreen(){
                             </div>
                             }
                         </div>
-                        {massBlockModal && <MassBlockModal onClose={()=>closeMassBlockModal()}/>}
+                        {massBlockModal && <MassBlockModal onBlock={()=>blockMassUsers()} onClose={()=>closeMassBlockModal()}/>}
 
                         <div className={"comment-divider"}></div>
                         {massBlock ?
