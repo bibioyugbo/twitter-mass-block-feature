@@ -4,6 +4,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     /*background-color: rgb(0, 0, 0);*/
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
@@ -44,7 +45,9 @@ body{
 
 .dirty-text-top-wrapper{
     display: flex;
-justify-content: space-between;
+    justify-content: space-between;
+}
+.custom-radio-group{
 }
 .mass-block-clicked{
     display: flex;
@@ -59,9 +62,51 @@ justify-content: space-between;
 .custom-radio input[type="radio"] {
     display: none;
 }
+.custom-radio span{
+    transform: translateX(-100%);
+    animation: slideIn 0.5s ease-in forwards;
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.blocked-successful-modal{
+    position: absolute;
+    bottom: 15px;
+    left: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 230px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(29, 155, 240);
+    transform: translateX(-100%);
+    animation: slideInUp 0.5s ease-in forwards;
+}
 
 /* Create a custom box for the radio */
 .radio-box {
+    /*transition: transform 0.3s ease-in-out!important; !* Smooth animation *!*/
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -70,7 +115,7 @@ justify-content: space-between;
     border-radius: 4px;
     background-color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
 }
 .action-item-mass-block{
     color: rgb(29, 155, 240);
@@ -173,6 +218,7 @@ justify-content: space-between;
 
 }
 .dirty-comment{
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
     gap: 8px;
     display: flex;
 }
@@ -198,7 +244,10 @@ justify-content: space-between;
     margin-top: 10px;
     color: rgb(113, 118, 123);
     font-size: 15px;
-
+}
+.inactive-blog{
+    /*display: none;*/
+    transform: scaleX(0); /* Start hidden */
 }
 .blocked-successful-modal-left{
     color: white;
@@ -209,20 +258,7 @@ justify-content: space-between;
     font-size: 15px;
     font-weight: 500;
 }
-.blocked-successful-modal{
-    position: absolute;
-    bottom: 15px;
-    left: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 230px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: rgb(29, 155, 240);
-}
+
 .confirm-mass-block-buttons{
     gap: 15px;
     margin-top: 35px;
@@ -468,7 +504,111 @@ justify-content: space-between;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.00);
 }
+.tweet-bubble-top{
+    display: flex;
+    justify-content: space-between;
+}
+.tweet-bubble-body{
+    margin-top: 15px;
+}
+.tweet-modal-text-selection{
+    border: 1px solid rgb(83, 100, 113);;
+    color: rgb(29, 155, 240);
+    font-size:15px;
+    font-weight:600;
+    display: flex;
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 110px;
+    padding: 12px;
+}
+.tweet-modal-text-content{
+    color: rgb(112, 110, 118);
+    font-weight: 400;
+    font-size: 20px;
+}
+.tweet-post{
+    height: 36px;
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 155, 240);
+    border-color: rgba(0, 0, 0, 0);
+    color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 9999px;
+}
+.tweet-icons{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+.tweet-post-wrap{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.mic-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the SVG */
+    border-radius: 50%;
+    padding: 5px; /* Keep consistent padding */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+.mic-icon:hover{
+    background-color: rgb(47, 51, 54); /* New background color on hover */
+    transform: scale(1.1); /* Slightly scale up the icon */
+}
+.tweet-bubble-body-btm{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tweet-modal-text-btm{
+    display: flex;
+    gap: 5px;
+}
+.tweet-modal-text-btm-wrapper{
+   margin-top: 100px;
+}
+.border-line{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 1px;
+   background-color: rgb(47, 51, 54);
+}
+.tweet-bubble-body-top{
+    display: flex;
+    gap: 10px;
+
+}
+.modal-bottom-content{
+    color: rgb(29, 155, 240);
+    font-size:14px;
+    font-weight:600;
+
+}
+.tweet-modal-text{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.post-btn:hover{
+    background-color: rgb(20, 135, 220); /* Darker version */
+
+}
 .post-btn{
+    cursor: pointer;
     border-color: rgba(0, 0, 0, 0);
     background-color: rgb(29, 155, 240);
     width: 233px;
@@ -477,6 +617,14 @@ justify-content: space-between;
     color: white;
     font-size: 17px;
     font-weight: 600;
+}
+.tweet-bubble{
+    padding: 20px;
+    margin-top: -400px;
+    border-radius: 16px;
+    width: 600px;
+    height: 314px;
+    background-color: black;
 }
 .side-bar-item{
     display: flex;
@@ -497,6 +645,7 @@ justify-content: space-between;
     display: flex;
 }
 .side-bar-item-text{
+    cursor: pointer;
     color: white;
     font-size: 20px;
 }

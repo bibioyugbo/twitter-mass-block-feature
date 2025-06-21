@@ -1,11 +1,18 @@
 
 import twitterLogo from "../../assets/images/X_icon_2.svg"
+import {useState} from "react";
+import TweetBubbleModal from "../modals/TweetBubbleModal.tsx";
+export type IconProps={
+    bookmarkClicked: ()=>void
+}
 
 
 
 
+export default function TwitterSideBar({bookmarkClicked}:IconProps){
 
-export default function TwitterSideBar(){
+    const [postClicked, setPostClicked]= useState(false)
+
     return(
         <>
             <div className={"twitter-sidebar"}>
@@ -90,10 +97,11 @@ export default function TwitterSideBar(){
                                       d="M5 21V5q0-.825.588-1.412T7 3h10q.825 0 1.413.588T19 5v16l-7-3zm2-3.05l5-2.15l5 2.15V5H7zM7 5h10z"/>
                             </svg>
                         </div>
-                        <div className={"side-bar-item-text"}>
+                        {}
+                        <a onClick={bookmarkClicked}   className={"side-bar-item-text"}>
                             Bookmarks
+                        </a>
 
-                        </div>
                     </div>
                     <div className={"side-bar-item"}>
                         <div className={"side-bar-item-img"}>
@@ -162,7 +170,9 @@ export default function TwitterSideBar(){
                         </div>
                     </div>
 
-                    <button className={"post-btn"}>Post</button>
+
+                    <button onClick={()=>setPostClicked(true)} className={"post-btn"}>Post</button>
+                    {postClicked && <TweetBubbleModal onClose={()=>setPostClicked(false)}/> }
 
                 </div>
                 <div className={"profile-section"}>
