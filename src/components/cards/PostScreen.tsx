@@ -29,7 +29,7 @@ export default function PostScreen(){
     return(
         <>
             <div className={"post-screen-wrapper"}>
-                <TwitterSideBar bookmarkClicked={goToBookMark}/>
+                <TwitterSideBar />
                 <div className={"divider"}></div>
                 {home && <PostScreenCard/>}
                 {bookmark && <BookMarkCard/>}
