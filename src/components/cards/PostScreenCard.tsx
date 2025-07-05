@@ -7,7 +7,7 @@ import dummyImg from "../../assets/images/dummy-img.jpg";
 import dummyImg2 from "../../assets/images/dummy2.jpg";
 import dummyImg3 from "../../assets/images/goodbabe.jpg";
 import dummyImg4 from "../../assets/images/nastyguy.jpg";
-import React, {useState} from "react";
+import  {useState} from "react";
 
 export default function PostScreenCard(){
 

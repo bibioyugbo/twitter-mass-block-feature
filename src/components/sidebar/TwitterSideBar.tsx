@@ -2,14 +2,14 @@
 import twitterLogo from "../../assets/images/X_icon_2.svg"
 import {useState} from "react";
 import TweetBubbleModal from "../modals/TweetBubbleModal.tsx";
-export type IconProps={
-    bookmarkClicked: ()=>void
-}
+// export type IconProps={
+//     bookmarkClicked: ()=>void
+// }
 
 
 
 
-export default function TwitterSideBar({bookmarkClicked}:IconProps){
+export default function TwitterSideBar(){
 
     const [postClicked, setPostClicked]= useState(false)
 
