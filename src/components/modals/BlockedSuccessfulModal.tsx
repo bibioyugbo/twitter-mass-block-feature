@@ -1,13 +1,18 @@
-export default function BlockedSuccessfulModal(){
+import React from "react";
+
+interface ModalProps{
+    children?:React.ReactNode,
+    customStyle?: string
+}
+
+
+
+
+export default function BlockedSuccessfulModal({children,customStyle}:ModalProps){
     return(
         <>
-            <div className={"blocked-successful-modal"}>
-                <div className={"blocked-successful-modal-left"}>
-                    Successfully blocked.
-                </div>
-                <div className={"blocked-successful-modal-right"}>
-                    Unblock
-                </div>
+            <div className={`blocked-successful-modal ${customStyle ?? ""}`}>
+                {children}
             </div>
         </>
     )

@@ -7,7 +7,7 @@ import dummyImg from "../../assets/images/dummy-img.jpg";
 import dummyImg2 from "../../assets/images/dummy2.jpg";
 import dummyImg3 from "../../assets/images/goodbabe.jpg";
 import dummyImg4 from "../../assets/images/nastyguy.jpg";
-import {useState} from "react";
+import React, {useState} from "react";
 
 export default function PostScreenCard(){
 
@@ -89,7 +89,17 @@ export default function PostScreenCard(){
                                 </svg>
                             </a>
                             {showModal && <MoreActionsModal massBlockProp={() => massBlockUsers()}/>}
-                            {openBlockedSuccessful && <BlockedSuccessfulModal/>}
+                            {openBlockedSuccessful &&
+                                <BlockedSuccessfulModal>
+                                    <div className={"blocked-successful-modal-left"}>
+                                        Successfully blocked.
+                                    </div>
+                                    <div className={"blocked-successful-modal-right"}>
+                                        Unblock
+                                    </div>
+                                </BlockedSuccessfulModal>
+                                // <BlockedSuccessfulModal/>
+                            }
 
                         </div>
 
@@ -212,7 +222,7 @@ export default function PostScreenCard(){
                                 <div className={"dirty-text-top-wrapper"}>
                                     <div className={"dirty-text-top"}>
                                         <div className={"post-screen-display-name"}>
-                                            Ode Guy
+                                            Odd Guy
                                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
                                                  viewBox="0 0 24 24">
                                                 <path fill="#1D9BF9"
@@ -220,7 +230,7 @@ export default function PostScreenCard(){
                                             </svg>
                                         </div>
                                         <div className={"post-screen-user-name"}>
-                                            SillyDude123 · Sep 5
+                                            OtherDude123 · Sep 5
                                         </div>
                                     </div>
 
@@ -318,7 +328,7 @@ export default function PostScreenCard(){
                             <div className={"dirty-text-top-wrapper"}>
                                 <div className={"dirty-text-top"}>
                                     <div className={"post-screen-display-name"}>
-                                        Ode Guy
+                                        Odd Guy
                                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
                                              viewBox="0 0 24 24">
                                             <path fill="#1D9BF9"
@@ -326,7 +336,7 @@ export default function PostScreenCard(){
                                         </svg>
                                     </div>
                                     <div className={"post-screen-user-name"}>
-                                        SillyDude123 · Sep 5
+                                        OtherDude123 · Sep 5
                                     </div>
                                 </div>
 
@@ -435,7 +445,7 @@ export default function PostScreenCard(){
                                     <div className={"dirty-text-top-wrapper"}>
                                         <div className={"dirty-text-top"}>
                                             <div className={"post-screen-display-name"}>
-                                                Big Dummy
+                                                Big Dude
                                             </div>
                                             <div className={"post-screen-user-name"}>
                                                 cloutchaserrr · Sep 5
@@ -522,7 +532,7 @@ export default function PostScreenCard(){
                                 <div className={"dirty-text-top-wrapper"}>
                                     <div className={"dirty-text-top"}>
                                         <div className={"post-screen-display-name"}>
-                                            Big Dummy
+                                            Big Dude
                                         </div>
                                         <div className={"post-screen-user-name"}>
                                             cloutchaserrr · Sep 5

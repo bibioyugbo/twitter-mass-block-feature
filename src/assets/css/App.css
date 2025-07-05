@@ -16,6 +16,20 @@ body{
     background-color: rgb(0, 0, 0)!important;
     cursor: pointer;
 }
+.tweet-posted{
+    display: flex;
+    align-items: center;
+    justify-content: center!important;
+}
+.editable-textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    font-size: 1rem;
+    width: 100%;
+    color: inherit;
+    outline: none;
+}
 .bookmark-interactions{
     display: flex;
     gap: 10px;
@@ -90,14 +104,16 @@ body{
 .blocked-successful-modal{
     position: absolute;
     bottom: 15px;
+    color: white;
+    font-size: 15px;
     left: 600px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 230px;
-    height: 40px;
+
+    padding:10px 20px;
+    width: 280px;
+    /*height: 40px;*/
     border-radius: 5px;
     background-color: rgb(29, 155, 240);
     transform: translateX(-100%);
@@ -250,8 +266,8 @@ body{
     transform: scaleX(0); /* Start hidden */
 }
 .blocked-successful-modal-left{
-    color: white;
-    font-size: 15px;
+    /*color: white;*/
+    /*font-size: 15px;*/
 }
 .blocked-successful-modal-right{
     color: white;
@@ -267,10 +283,10 @@ body{
 }
 .confirm-mass-block{
     background-color: black;
-    width: 256px;
+    width: 320px;
     border-radius: 16px;
     padding: 32px;
-    height: 236px;
+    /*height: 236px;*/
 }
 .modal-overlay-form {
     position: fixed;

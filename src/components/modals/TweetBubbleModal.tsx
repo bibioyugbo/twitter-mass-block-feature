@@ -1,10 +1,14 @@
-import { useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import catImg from "../../assets/images/cat-avi.jpg";
+import BlockedSuccessfulModal from "./BlockedSuccessfulModal.tsx";
 
 export type IconProps = {
     onClose: () => void;
 };
-
+interface SpeechRecognitionEvent extends Event {
+    results: SpeechRecognitionResultList;
+    resultIndex: number;
+}
 declare global {
     interface SpeechRecognition extends EventTarget {
         start(): void;
@@ -15,37 +19,64 @@ declare global {
 }
 
 export default function TweetBubbleModal({ onClose }: IconProps) {
-    // const [isListening, setIsListening] = useState(false);
-    // const [transcript, setTranscript] = useState("What is happening?!");
+    const [isListening, setIsListening] = useState(false);
+    const [showBubble, setShowBubble] = useState(true);
+    const [showSuccess, setShowSuccess]=useState(false);
+
+
+    const [transcript, setTranscript] = useState("What is happening?!");
 
     const recognitionRef = useRef<SpeechRecognition | null>(null);
+    const postMessage = ()=>{
+        setShowSuccess(true)
+        setShowBubble(false)
+    }
 
-    // useEffect(() => {
-    //     if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
-    //         const recognition = new (window.SpeechRecognition ||
-    //             window.webkitSpeechRecognition)();
-    //
-    //         recognition.continuous = false;
-    //         recognition.interimResults = true;
-    //
-    //         recognition.onstart = () => {
-    //             setTranscript("Listening...");
-    //             setIsListening(true);
-    //         };
-    //
-    //         recognition.onend = () => {
-    //             setIsListening(false);
-    //         };
-    //
-    //         recognition.onresult = (event) => {
-    //             if (event.results) {
-    //                 setTranscript(event.results[0][0].transcript);
-    //             }
-    //         };
-    //
-    //         recognitionRef.current = recognition;
-    //     }
-    // }, []);
+    useEffect(() => {
+        setShowBubble(true)
+        // const SpeechRecognitionConstructor = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        // if (!SpeechRecognitionConstructor) {
+        //     console.error("Speech recognition not supported in this browser.");
+        // }
+        // else {
+        //     const recognition = new SpeechRecognitionConstructor();
+        //     recognition.lang = "en-US"; // or "yo-NG"
+        //     recognition.interimResults = true;
+        //     recognition.continuous = false;
+        // }
+
+
+        if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
+
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = "en-US";
+
+
+            recognition.onstart = () => {
+                setTranscript("Listening...");
+                setIsListening(true);
+            };
+
+            recognition.onend = () => {
+                setIsListening(false);
+            };
+
+            recognition.onresult = (event:SpeechRecognitionEvent) => {
+                if (event.results) {
+                    setTranscript(event.results[0][0].transcript);
+                }
+            };
+
+            recognitionRef.current = recognition;
+        }
+        else {
+            alert("Speech Recognition not supported in this browser.");
+            return;
+        }
+    }, []);
 
     const startListening = () => {
         recognitionRef.current?.start();
@@ -57,7 +88,7 @@ export default function TweetBubbleModal({ onClose }: IconProps) {
 
     return (
         <>
-            <div className="modal-overlay-form">
+            {showBubble && <div className="modal-overlay-form">
                 <div className="tweet-bubble">
                     <div className="tweet-bubble-top">
             <span
@@ -97,9 +128,17 @@ export default function TweetBubbleModal({ onClose }: IconProps) {
                                             />
                                         </svg>
                                     </div>
-                                    <div id="output" className="tweet-modal-text-content">
-                                        {/*{transcript}*/}
+                                    <div
+                                        contentEditable
+                                        suppressContentEditableWarning
+                                        onInput={(e) => setTranscript(e.currentTarget.textContent || "")}
+                                        className="tweet-modal-text-content editable-div"
+                                    >
+                                        {transcript}
                                     </div>
+                                    {/*<div id="output" className="tweet-modal-text-content">*/}
+                                    {/*    {transcript}*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                         </div>
@@ -144,21 +183,21 @@ export default function TweetBubbleModal({ onClose }: IconProps) {
                                     </svg>
                                 </div>
                                 <div className={"tweet-post-wrap"}>
-                                    {/*<button onClick={startListening} disabled={isListening} id={"start"} className={"mic-icon"}>*/}
-                                    {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">*/}
-                                    {/*        <path fill="#1D9BF0" fill-rule="evenodd"*/}
-                                    {/*              d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4m-7 8a1 1 0 0 1 1 1a6 6 0 0 0 12 0a1 1 0 1 1 2 0a8 8 0 0 1-7 7.938V21a1 1 0 1 1-2 0v-2.062A8 8 0 0 1 4 11a1 1 0 0 1 1-1"*/}
-                                    {/*              clip-rule="evenodd"/>*/}
-                                    {/*    </svg>*/}
-                                    {/*</button>*/}
-                                    <button onClick={startListening} id={"start"} className={"mic-icon"}>
+                                    <button onClick={startListening} disabled={isListening} id={"start"} className={"mic-icon"}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                             <path fill="#1D9BF0" fill-rule="evenodd"
                                                   d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4m-7 8a1 1 0 0 1 1 1a6 6 0 0 0 12 0a1 1 0 1 1 2 0a8 8 0 0 1-7 7.938V21a1 1 0 1 1-2 0v-2.062A8 8 0 0 1 4 11a1 1 0 0 1 1-1"
                                                   clip-rule="evenodd"/>
                                         </svg>
                                     </button>
-                                    <div className={"tweet-post"}>
+                                    {/*<button onClick={startListening} id={"start"} className={"mic-icon"}>*/}
+                                    {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">*/}
+                                    {/*        <path fill="#1D9BF0" fill-rule="evenodd"*/}
+                                    {/*              d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4m-7 8a1 1 0 0 1 1 1a6 6 0 0 0 12 0a1 1 0 1 1 2 0a8 8 0 0 1-7 7.938V21a1 1 0 1 1-2 0v-2.062A8 8 0 0 1 4 11a1 1 0 0 1 1-1"*/}
+                                    {/*              clip-rule="evenodd"/>*/}
+                                    {/*    </svg>*/}
+                                    {/*</button>*/}
+                                    <div onClick={postMessage} className={"tweet-post"}>
                                         Post
                                     </div>
                                 </div>
@@ -168,7 +207,15 @@ export default function TweetBubbleModal({ onClose }: IconProps) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> }
+            {showSuccess &&
+                <BlockedSuccessfulModal customStyle={"tweet-posted"}>
+                    <div>
+                        Tweet Posted
+                    </div>
+                </BlockedSuccessfulModal>
+            }
+
         </>
     );
 }

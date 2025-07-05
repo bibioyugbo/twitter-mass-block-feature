@@ -98,7 +98,10 @@ export default function TwitterSideBar({bookmarkClicked}:IconProps){
                             </svg>
                         </div>
                         {}
-                        <a onClick={bookmarkClicked}   className={"side-bar-item-text"}>
+                        {/*<a onClick={bookmarkClicked}   className={"side-bar-item-text"}>*/}
+                        {/*    Bookmarks*/}
+                        {/*</a>*/}
+                        <a className={"side-bar-item-text"}>
                             Bookmarks
                         </a>
 
