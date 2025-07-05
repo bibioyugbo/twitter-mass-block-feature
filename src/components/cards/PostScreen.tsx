@@ -1,8 +1,6 @@
 import TwitterSideBar from "../sidebar/TwitterSideBar.tsx";
 import aryaImg from "../../assets/images/ayra-avi.jpg"
 import PostScreenCard from "./PostScreenCard.tsx";
-import {useState} from "react";
-import BookMarkCard from "./BookMarkCard.tsx";
 
 
 
@@ -12,13 +10,13 @@ import BookMarkCard from "./BookMarkCard.tsx";
 
 
 export default function PostScreen(){
-    const [home, setHome]=useState(true)
-    const [bookmark, setBookmark]=useState(false)
-
-    function goToBookMark(){
-        setBookmark(true)
-        setHome(false)
-    }
+    // const [home, setHome]=useState(true)
+    // const [bookmark, setBookmark]=useState(false)
+    //
+    // function goToBookMark(){
+    //     setBookmark(true)
+    //     setHome(false)
+    // }
 
 
 
@@ -31,8 +29,10 @@ export default function PostScreen(){
             <div className={"post-screen-wrapper"}>
                 <TwitterSideBar />
                 <div className={"divider"}></div>
-                {home && <PostScreenCard/>}
-                {bookmark && <BookMarkCard/>}
+                {/*{home && <PostScreenCard/>}*/}
+                {/*{bookmark && <BookMarkCard/>}*/}
+                <PostScreenCard/>
+
 
                 <div className={"divider"}></div>
                 <div className={"trending-search"}>
