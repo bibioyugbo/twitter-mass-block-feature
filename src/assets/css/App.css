@@ -23,6 +23,9 @@ body{
     }
 
 }
+.mobile-bg{
+    background-color: black;
+}
 .tweet-posted{
     display: flex;
     align-items: center;

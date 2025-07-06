@@ -8,6 +8,7 @@ import dummyImg2 from "../../assets/images/dummy2.jpg";
 import dummyImg3 from "../../assets/images/goodbabe.jpg";
 import dummyImg4 from "../../assets/images/nastyguy.jpg";
 import  {useState} from "react";
+import MobileDropdown from "./MobileDropdown.tsx";
 
 export default function PostScreenCard(){
 
@@ -1056,6 +1057,7 @@ export default function PostScreenCard(){
                     }
                     <div className={"comment-divider"}></div>
                 </div>
+                <MobileDropdown/>
 
 
             </div>
