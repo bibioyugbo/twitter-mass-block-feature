@@ -22,6 +22,12 @@ body{
     }
 }
 @media screen and (max-width:500px) {
+    .post-screen-comments-wrapper{
+        width: 320px;
+    }
+    .radio-box{
+        margin-right: 0!important;
+    }
     .twitter-sidebar{
         display: none!important;
     }
