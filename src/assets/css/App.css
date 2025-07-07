@@ -434,7 +434,7 @@ body{
 }
 .post-screen{
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 14px;
 }
 .post-screen-item-avi{
     border-radius: 30px;
@@ -703,8 +703,8 @@ body{
     display: flex;
 }
 .mobile-sidebar{
-    padding-right: 20px;
-    padding-left: 20px;
+    /*padding-right: 5px;*/
+    /*padding-left: 5px;*/
     flex-direction: column;
     display: none;
     align-items: center;
@@ -716,7 +716,7 @@ body{
 }
 .mobile-post-btn{
     border-radius: 100%;
-    padding: 12px;
+    padding: 15px;
 }
 .side-bar-items{
     margin-top: 20px;
