@@ -25,6 +25,9 @@ body{
     .twitter-sidebar{
         display: none!important;
     }
+    .comment-divider{
+        margin-left: 0!important;
+    }
     .trending-search{
         display: none!important;
     }
@@ -35,13 +38,15 @@ body{
         width: unset !important;
     }
     .post-screen{
+        padding-left: 10px !important;
         padding-right: 0!important;
     }
     .tweet-bubble {
-        width: 420px!important;
+        width: 400px!important;
+        margin-top: 0!important;
     }
     .blocked-successful-modal{
-        left:150px !important
+        left:100px !important
     }
     .more-actions-wrapper{
         right:20px !important;
@@ -715,8 +720,8 @@ body{
     font-size: 20px;
 }
 .mobile-post-btn{
-    border-radius: 100%;
-    padding: 15px;
+    border-radius: 100px;
+    padding: 12px;
 }
 .side-bar-items{
     margin-top: 20px;
