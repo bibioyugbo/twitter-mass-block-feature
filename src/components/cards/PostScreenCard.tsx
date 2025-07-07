@@ -8,7 +8,6 @@ import dummyImg2 from "../../assets/images/dummy2.jpg";
 import dummyImg3 from "../../assets/images/goodbabe.jpg";
 import dummyImg4 from "../../assets/images/nastyguy.jpg";
 import  {useState} from "react";
-import MobileDropdown from "./MobileDropdown.tsx";
 
 export default function PostScreenCard(){
 
@@ -214,7 +213,7 @@ export default function PostScreenCard(){
                             <label className={"custom-radio"}>
                                 <input type="radio" name="customRadio" value="option1"/>
                                 <span className={"radio-box"}></span>
-                                Option 1
+
                             </label>
                         </div>
                         <div className={"dirty-comment"}>
@@ -437,7 +436,7 @@ export default function PostScreenCard(){
                                 <label className="custom-radio">
                                     <input type="radio" name="customRadio2" value="option2"/>
                                     <span className="radio-box"></span>
-                                    Option 1
+                                    
                                 </label>
                             </div>
                             <div className={"dirty-comment"}>
@@ -622,7 +621,7 @@ export default function PostScreenCard(){
                                 <label className="custom-radio">
                                     <input type="radio" name="customRadio3" value="option1"/>
                                     <span className={selectUser ? "deselected-user" : "radio-box"}></span>
-                                    Option 1
+                                    
                                 </label>
                             </div>
                             <div className={"dirty-comment"}>
@@ -844,7 +843,7 @@ export default function PostScreenCard(){
                                 <label className="custom-radio">
                                     <input type="radio" name="customRadio4" value="option1"/>
                                     <span className="radio-box"></span>
-                                    Option 1
+                                    
                                 </label>
                             </div>
                             <div className={"dirty-comment"}>
@@ -1057,8 +1056,6 @@ export default function PostScreenCard(){
                     }
                     <div className={"comment-divider"}></div>
                 </div>
-                <MobileDropdown/>
-
 
             </div>
 

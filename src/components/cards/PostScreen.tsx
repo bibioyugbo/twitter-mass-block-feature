@@ -1,6 +1,7 @@
 import TwitterSideBar from "../sidebar/TwitterSideBar.tsx";
 import aryaImg from "../../assets/images/ayra-avi.jpg"
 import PostScreenCard from "./PostScreenCard.tsx";
+import MobileSidebar from "../sidebar/MobileSidebar.tsx";
 
 
 
@@ -28,13 +29,14 @@ export default function PostScreen(){
         <>
             <div className={"post-screen-wrapper"}>
                 <TwitterSideBar />
+                <MobileSidebar/>
                 <div className={"divider"}></div>
                 {/*{home && <PostScreenCard/>}*/}
                 {/*{bookmark && <BookMarkCard/>}*/}
                 <PostScreenCard/>
 
 
-                <div className={"divider"}></div>
+                <div className={"divider-right"}></div>
                 <div className={"trending-search"}>
                     <div className={"trending-searchbar"}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
